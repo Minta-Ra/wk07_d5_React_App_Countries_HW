@@ -12,9 +12,10 @@ const CountryList = ({countries}) => {
         setSelectedCountry(country)
     };
 
+    // Sorting alphabetically list of countries
+    let sortedCounries = countries.sort((a, b) => a.name.common > b.name.common ? 1 : -1);
 
-    // console.log("I am country", countries.country);
-    const countryItems = countries.map((country, index) => {
+    const countryItems = sortedCounries.map((country, index) => {
 
         return (
             <div key={index}>
