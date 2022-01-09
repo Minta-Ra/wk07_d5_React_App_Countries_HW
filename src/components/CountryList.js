@@ -2,12 +2,12 @@ import React from 'react';
 import ListItem from './ListItem';
 
 
-const CountryList = ({countries}) => {
+const CountryList = ({countries, onSongClick}) => {
 
     // console.log("I am country", countries.country);
     const countryItems = countries.map((country, index) => {
 
-        return <ListItem country={country} key={index}/>
+        return <ListItem country={country} key={index} onSongClick={onSongClick}/>
     });
 
 

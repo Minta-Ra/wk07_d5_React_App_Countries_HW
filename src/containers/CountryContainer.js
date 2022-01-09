@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import CountryList from '../components/CountryList';
+import CountryDetail from '../components/CountryDetail';
 
 const CountryContainer = ({links}) => {
 
     const [countries, setCountries] = useState([]);
+    const [selectedCountry, setSelectedCountry] = useState(null);
 
     useEffect(() => {
         loadCountries(links[0].url)
@@ -17,10 +19,15 @@ const CountryContainer = ({links}) => {
         .catch(error => console.error);
     };
 
+    const onSongClick = (country) => {
+        setSelectedCountry(country)
+    };
+
     return (
         <>
             <h2>CountryContainer</h2>
-            <CountryList countries={countries}/>
+            <CountryDetail country={selectedCountry}/>
+            <CountryList countries={countries} onSongClick={onSongClick}/>
         </>
     );
 };

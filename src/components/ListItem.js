@@ -1,10 +1,14 @@
 import React from 'react';
 
-const ListItem = ({country}) => {
+const ListItem = ({country, onSongClick}) => {
+
+    const handleClick = () => {
+        onSongClick(country)
+    };
 
     return (
         <>
-            <li>
+            <li onClick={handleClick}>
                 {country.name.common}
             </li>
         </>
