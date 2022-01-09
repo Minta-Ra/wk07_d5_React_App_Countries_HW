@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ListItem = ({country, onSongClick}) => {
+const ListItem = ({country, onCountryClick}) => {
 
     const handleClick = () => {
-        onSongClick(country)
+        onCountryClick(country)
     };
 
     return (
@@ -14,7 +14,5 @@ const ListItem = ({country, onSongClick}) => {
         </>
     );
 };
-
-// Ternery if clicked render it
 
 export default ListItem;

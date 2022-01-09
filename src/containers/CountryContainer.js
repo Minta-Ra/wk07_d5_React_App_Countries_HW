@@ -5,7 +5,7 @@ import CountryDetail from '../components/CountryDetail';
 const CountryContainer = ({links}) => {
 
     const [countries, setCountries] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState(null);
+
 
     useEffect(() => {
         loadCountries(links[0].url)
@@ -19,15 +19,12 @@ const CountryContainer = ({links}) => {
         .catch(error => console.error);
     };
 
-    const onSongClick = (country) => {
-        setSelectedCountry(country)
-    };
 
     return (
         <>
-            <h2>CountryContainer</h2>
-            <CountryDetail country={selectedCountry}/>
-            <CountryList countries={countries} onSongClick={onSongClick}/>
+            <h1>All countries in the world</h1>
+            <p>Click on the country name to see details</p>
+            <CountryList countries={countries}/>
         </>
     );
 };
