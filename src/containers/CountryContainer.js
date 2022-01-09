@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import CountryList from '../components/CountryList';
 
 const CountryContainer = ({links}) => {
 
@@ -11,14 +12,16 @@ const CountryContainer = ({links}) => {
     const loadCountries = (url) => {
         fetch(url)
         .then(response => response.json())
-        .then(countriesList => setCountries(countriesList[0])) //.name.common
+        // .then(response => console.log(response))
+        .then(allCountries => setCountries(allCountries)) //.name.common
         .catch(error => console.error);
     };
 
-
-
     return (
-        <h2>CountryContainer</h2>
+        <>
+            <h2>CountryContainer</h2>
+            <CountryList countries={countries}/>
+        </>
     );
 };
 
